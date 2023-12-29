@@ -25,7 +25,7 @@ loginButton.addEventListener("click", (event) => {
   } else {
     console.error("No file selected");
   }
-  songResult.innerHTML = `<h1>노래</h1><p>${song}</p>`;
-  urlResult.innerHTML = `<h1>직캠</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-  dateResult.innerHTML = `<h1>날짜</h1><p>${date}</p>`;
+  songResult.innerHTML = `<h1>SONG</h1><p>${song}</p>`;
+  urlResult.innerHTML = `<h1>FANCAM</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
+  dateResult.innerHTML = `<h1>DATE</h1><p>${date}</p>`;
 });
