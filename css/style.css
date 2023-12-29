@@ -139,6 +139,18 @@ section > div {
 label {
   margin-bottom: 20px;
 }
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+}
+#fileResult img {
+  width: 60%;
+}
 
 @keyframes hideSplashScreen {
   from {
