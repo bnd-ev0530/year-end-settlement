@@ -19,7 +19,7 @@ loginButton.addEventListener("click", (event) => {
   console.log(image);
 
   if (file) {
-    fileResult.innerHTML = `<img src='${imgUrl}'>`; // Display the file name or other file details
+    fileResult.innerHTML = `<img src='${imgUrl}' style="max-width:100%">`; // Display the file name or other file details
   } else {
     console.error("No file selected");
   }
