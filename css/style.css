@@ -1,11 +1,4 @@
 @import "variables.css";
-@import "components/search.css";
-@import "components/clock.css";
-@import "components/greeting.css";
-@import "components/photo.css";
-@import "components/mv.css";
-@import "components/todo.css";
-@import "components/weather.css";
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600&family=Noto+Sans+KR:wght@400;500;600;700&display=swap");
 body {
   margin: 0;
@@ -16,21 +9,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #70c8ee;
 }
 
-input:not([type="radio"]) {
+input:not([type="radio"], [type="date"]) {
   width: 100%;
-  height: 65px;
+  height: 45px;
   box-sizing: border-box;
   border: 0;
   background-color: rgba(0, 0, 0, 0.2);
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: -0.25pt;
   -webkit-padding-before: 3px;
   padding-block-start: 3px;
-  color: aliceblue;
-  border-radius: 8px;
+  border-radius: 4px;
   padding-left: 10px;
   outline: none;
   box-shadow: var(--box-shadow);
@@ -132,7 +123,7 @@ section > div {
 }
 
 #submit {
-  margin: 50px 0;
+  margin: 30px 0 50px;
   cursor: pointer;
 }
 
