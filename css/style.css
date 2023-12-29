@@ -146,6 +146,10 @@ ul li {
 input[type="radio"] {
   display: inline-block;
 }
+
+#video-container img {
+  width: 20%;
+}
 @keyframes hideSplashScreen {
   from {
     opacity: 1;
