@@ -1,0 +1,17 @@
+:root {
+  --rose: #f7cac9;
+  --sere: #92a8d1;
+  --gray: #a6a6a6;
+  --light-gray: #d4d4d4;
+  --white: #fff;
+  --dark: #222222;
+  --main-horizontal: 0 10px;
+  --box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  --bg-gradient: linear-gradient(
+    115deg,
+    rgba(247, 202, 201, 1) 0%,
+    rgba(146, 168, 209, 1) 100%
+  );
+  --bg-bnd-pk: #be0062;
+  --bg-bnd-bl: #70c8ee;
+}

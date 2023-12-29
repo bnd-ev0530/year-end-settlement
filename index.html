@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:image" content="" />
+    <link rel="shortcut icon" sizes="16x16 32x32 64x64" href="" />
+    <title>2024 year end</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="title"></header>
+    <section>
+      <div class="login">
+        <form id="login-form" action="result.html">
+          <label for="file"
+            >🔗 가장 좋아하는 사진을 첨부하세요.
+            <input
+              type="file"
+              accept="image/*"
+              id="file"
+              required
+              name="file"
+            />
+          </label>
+
+          <label for="song">🎵 가장 좋아하는 곡을 선택하세요. </label>
+          <br />
+          <div>
+            <input type="radio" id="song1" name="song" value="돌버겟" checked />
+            <label for="song1">돌버겟</label>
+          </div>
+
+          <div>
+            <input type="radio" id="song2" name="song" value="원앤온리" />
+            <label for="song2">원앤온리</label>
+          </div>
+
+          <div>
+            <input type="radio" id="song3" name="song" value="세레나데" />
+            <label for="song3">세레나데</label>
+          </div>
+
+          <label for="url"
+            >🎵 가장 좋아하는 직캠 링크를 첨부하세요
+            <input
+              type="url"
+              name="url"
+              id="url"
+              value="https://youtube.com"
+              placeholder="https://youtube.com"
+              pattern="https://.*"
+              size="30"
+              required
+            />
+          </label>
+          <label for="date"
+            >🎵 입덕 시기를 입력하세요
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value="2023-12-29"
+              min="2023-04-01"
+              max="2023-12-29"
+            />
+          </label>
+
+          <!-- <input
+            type="text"
+            placeholder="이름을 입력해 주세요..."
+            required
+            maxlength="10"
+          /> -->
+
+          <input type="submit" value="확인" id="submit"></button>
+        </form>
+
+        <h1>result</div>
+          <ul>
+            <li id="fileResult"></li>
+            <li id="songResult"></li>
+            <li id="urlResult"></li>
+            <li id="dateResult"></li>
+          </ul>
+        
+      </div>
+    </section>
+
+    <!-- <div class="opening"><img src="images/bnd-logo-wh.png" /></div> -->
+
+    <script src="https://kit.fontawesome.com/6478f529f2.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+
+  </body>
+</html>

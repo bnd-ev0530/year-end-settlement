@@ -1,0 +1,17 @@
+.weather {
+  margin-bottom: 20px;
+}
+#weather {
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: aliceblue;
+  border-radius: 8px;
+}
+#weather img {
+  width: 30px;
+}
+
+#weather span {
+  display: flex;
+  align-items: center;
+}

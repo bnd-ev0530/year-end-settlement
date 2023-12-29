@@ -1,0 +1,68 @@
+.mv {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* .mute-box {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.1);
+  border: 50px solid #416bb4;
+  border-radius: 10px;
+  box-sizing: border-box;
+} */
+iframe {
+  border-radius: 20px;
+}
+/* .mv button {
+  border: 0;
+  padding: 5px 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mv button.url-button {
+  left: 20px;
+}
+.mv button.random-button {
+  right: 20px;
+}
+.mv span {
+  font-size: 20px;
+} */
+
+#songs {
+  position: absolute;
+  top: 10px;
+  color: aliceblue;
+  left: 20px;
+  font-weight: 600;
+}
+@media screen and (max-width: 1080px) {
+  .mute-box {
+    border: 34px solid #416bb4;
+    border-right: 25px solid #416bb4;
+    border-left: 25px solid #416bb4;
+    height: 250px;
+  }
+  .mv span {
+    font-size: 14px;
+  }
+
+  .mv iframe {
+    height: 250px;
+  }
+  .mv button {
+    width: 25px;
+    height: 25px;
+    bottom: 8px;
+  }
+}
