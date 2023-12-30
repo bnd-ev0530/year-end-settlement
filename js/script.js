@@ -135,7 +135,7 @@ loginButton.addEventListener("click", (event) => {
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
 
   // songResult.innerHTML = `${song}`;
-  ctx.font = "40px "; // Set font size and family
+  ctx.font = "24px Arial"; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
   ctx.fillText(song, 360, 235);
 
@@ -167,6 +167,8 @@ loginButton.addEventListener("click", (event) => {
   resultArea.classList.add("showing");
 
   window.location.href = "#result-area";
+  // Reset the form fields
+  form.reset();
 });
 
 // Function to save div as JPG with complex content handling
