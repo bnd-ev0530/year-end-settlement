@@ -27,7 +27,18 @@
     <header class="title"></header>
     <section>
       <div class="login">
-        <form id="login-form" action="result.html">
+        <form id="login-form">
+
+          <input
+            type="text"
+            placeholder="이름을 입력해 주세요..."
+            maxlength="10"
+            id="nickname"
+              required
+              name="nickname"
+          />
+          <br><br>
+
           <label for="file"
             >1. 가장 좋아하는 사진을 첨부하세요.<br><br>
             <input
@@ -76,7 +87,7 @@
 <br>
 <br>
           <label for="date"
-            >4. 입덕 시기를 입력하세요<br><br>
+            >4. 입덕 날짜를 입력하세요<br><br>
             <input
               type="date"
               id="date"
@@ -86,29 +97,25 @@
               max="2023-12-29"
             />
           </label>
-
-          <!-- <input
-            type="text"
-            placeholder="이름을 입력해 주세요..."
-            required
-            maxlength="10"
-          /> -->
-
+          
           <input type="submit" value="확인" id="submit"></button>
         </form>
-
-        <h1>result</h1>
-        <ul>
-          <li id="fileResult"></li>
-          <li id="songResult"></li>
-          <li id="dateResult"></li>
-          <li id="urlResult"></li>
-        </ul>
-
-        
-        
+      <div id="result-area">
+        <h1 class="">result</h1>
+        <div class="result-card" >
+          <ul class="result-list">
+            <li id="nameResult"></li>
+            <li id="fileResult"></li>
+            <li id="songResult"></li>
+            <li id="dateResult"></li>
+          </ul>
+        </div>
+        <div class="result-video">
+          <div id="urlResult"></div>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
     <!-- <div class="opening"><img src="images/bnd-logo-wh.png" /></div> -->
 
