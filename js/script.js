@@ -46,8 +46,10 @@ const videos = [
 ];
 
 const bgFile = "../images/idcard/idcard_sm.png";
+console.log(bgFile);
 const bgImage = new Image();
 bgImage.src = bgFile;
+console.log(bgImage);
 bgImage.onload = function () {
   ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 };
