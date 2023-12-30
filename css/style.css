@@ -175,12 +175,12 @@ input[type="radio"] {
 }
 .result-list #fileResult div {
   position: absolute;
-  width: 32vw;
-  height: 39vw;
+  width: 7vw;
+  height: 9vw;
   border: 1px solid;
   overflow: hidden;
-  top: 13vw;
-  left: 5vw;
+  top: 3vw;
+  left: 1vw;
 }
 .result-list #nameResult,
 .result-list #songResult,
@@ -202,10 +202,10 @@ input[type="radio"] {
 }
 .result-video > div > a > div {
   position: absolute;
-  top: 8vw;
-  left: 5vw;
-  width: 60vw;
-  height: 45vw;
+  top: 1vw;
+  left: 1vw;
+  width: 13vw;
+  height: 100%;
   background: red;
   border-radius: 40px;
   overflow: hidden;
@@ -215,7 +215,7 @@ input[type="radio"] {
 
 .result-video p {
   position: absolute;
-  bottom: -12vw;
+  bottom: -4vw;
 }
 
 #result-area {
@@ -270,4 +270,76 @@ input[type="radio"] {
   /* .mobile {
     display: flex;
   } */
+}
+
+@media screen and (max-width: 786px) {
+  #video-container img {
+    width: 20%;
+  }
+  .result-card {
+    background-image: url("../images/idcard/bb2f3f477022bd0c89df2318987dd7f5.jpg");
+    height: 241px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: contain;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .result-video {
+    background-image: url("../images/idcard/1b06d3ed17e94d2f824a017dcf715433.jpg");
+    height: 241px;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: contain;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .result-list li {
+    position: absolute;
+  }
+  .result-list #fileResult div {
+    position: absolute;
+    width: 32vw;
+    height: 39vw;
+    border: 1px solid;
+    overflow: hidden;
+    top: 13vw;
+    left: 5vw;
+  }
+  .result-list #nameResult,
+  .result-list #songResult,
+  .result-list #dateResult {
+    position: absolute;
+    right: 20px;
+  }
+
+  .result-list #nameResult {
+    top: 14vw;
+  }
+
+  .result-list #songResult {
+    top: 32vw;
+  }
+  .result-list #dateResult {
+    top: 21vw;
+    background: white;
+  }
+  .result-video > div > a > div {
+    position: absolute;
+    top: 8vw;
+    left: 5vw;
+    width: 60vw;
+    height: 45vw;
+    background: red;
+    border-radius: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  .result-video p {
+    position: absolute;
+    bottom: -12vw;
+  }
 }
