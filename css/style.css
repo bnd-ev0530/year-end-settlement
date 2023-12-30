@@ -221,10 +221,16 @@ input[type="radio"] {
 #result-area {
   display: none;
 }
-
+.image-circle {
+  border-radius: 50%;
+}
 .showing {
   display: block !important;
   margin: 20px 0 100px;
+}
+
+canvas {
+  width: 100%;
 }
 @keyframes hideSplashScreen {
   from {

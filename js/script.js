@@ -1,13 +1,21 @@
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("submit");
-const songResult = document.getElementById("songResult");
-const fileResult = document.getElementById("fileResult");
-const urlResult = document.getElementById("urlResult");
-const nameResult = document.getElementById("nameResult");
-const dateResult = document.getElementById("dateResult");
+// const songResult = document.getElementById("songResult");
+// const fileResult = document.getElementById("fileResult");
+// const urlResult = document.getElementById("urlResult");
+// const nameResult = document.getElementById("nameResult");
+// const dateResult = document.getElementById("dateResult");
 const resultArea = document.getElementById("result-area");
 
 const container = document.getElementById("video-container");
+
+// canvas
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
+const CANVAS_WIDTH = 600;
+const CANVAS_HEIGHT = 400;
+canvas.width = CANVAS_WIDTH;
+canvas.height = CANVAS_HEIGHT;
 
 //fake db - fancam
 const videos = [
@@ -36,6 +44,13 @@ const videos = [
     thumb: "004.jpg",
   },
 ];
+
+const bgFile = "../images/idcard/idcard_sm.png";
+const bgImage = new Image();
+bgImage.src = bgFile;
+bgImage.onload = function () {
+  ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+};
 
 // 2. fancam 라디오 버튼 생성
 videos.forEach((video, index) => {
@@ -74,7 +89,10 @@ loginButton.addEventListener("click", (event) => {
   event.preventDefault();
 
   const nickname = loginForm.nickname.value;
-
+  if (!nickname) {
+    alert("이름을 입력해주세요!");
+  }
+  console.log("nickname :" + nickname);
   //가장 좋아하는 사진
   const fileInput = loginForm.querySelector('input[type="file"]');
 
@@ -94,44 +112,104 @@ loginButton.addEventListener("click", (event) => {
     alert("가장 좋아하는 사진을 선택해주세요!");
   }
   console.log(file);
+
   const imgUrl = URL.createObjectURL(file);
   const image = new Image();
   image.src = imgUrl;
+  image.onload = function () {
+    ctx.drawImage(image, 40, 130, 200, 200);
+  };
+  fileInput.value = "";
 
   //가장 좋아하는 사진 선택하면
   if (file) {
-    fileResult.innerHTML = `<div><img src=${imgUrl} style="max-width:100%"></div>`; // Display the file name or other file details
+    //fileResult.innerHTML = `<div><img src=${imgUrl} style="max-width:100%"></div>`; // Display the file name or other file details
   } else {
     //선택안하면
     alert("No file selected");
     console.error("No file selected");
   }
-
+  console.log(song);
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
-  songResult.innerHTML = `${song}`;
 
+  // songResult.innerHTML = `${song}`;
+  ctx.font = "24px Arial"; // Set font size and family
+  ctx.fillStyle = "white"; // Set text color
+  ctx.fillText(song, 370, 230);
+
+  // dateResult.innerHTML = `${date}`;
+  ctx.font = "24px Arial"; // Set font size and family
+  ctx.fillStyle = "white"; // Set text color
+  ctx.fillText(date, 370, 190);
+  console.log(nickname);
+  // nameResult.innerHTML = `${nickname}`;
+  ctx.font = "24px Arial"; // Set font size and family
+  ctx.fillStyle = "white"; // Set text color
+  ctx.fillText(nickname, 370, 150);
   // urlResult.innerHTML = `<h1>FANCAM</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
   // 입덕 날짜
-  dateResult.innerHTML = `${date}`;
-  nameResult.innerHTML = `${nickname}`;
+  // dateResult.innerHTML = `${date}`;
+  // nameResult.innerHTML = `${nickname}`;
 
   //선택한 팬캠 정보를 찾음
-  const findVideoById = (videosArray, id) => {
-    return videosArray.find((video) => video.id === id);
-  };
+  // const findVideoById = (videosArray, id) => {
+  //   return videosArray.find((video) => video.id === id);
+  // };
 
-  const videoIdToFind = url;
-  const foundVideo = findVideoById(videos, videoIdToFind);
+  // const videoIdToFind = url;
+  // const foundVideo = findVideoById(videos, videoIdToFind);
 
   //선택한 팬캠 정보를 찾으면 결과에 넣음
-  if (foundVideo) {
-    urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
-    console.log("Found Video:", foundVideo.title);
-  } else {
-    console.log("Video not found.");
-  }
+  // if (foundVideo) {
+  //   urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
+  //   console.log("Found Video:", foundVideo.title);
+  // } else {
+  //   console.log("Video not found.");
+  // }
   resultArea.classList.add("showing");
 
   window.location.href = "#result-area";
+});
+
+// Function to save div as JPG with complex content handling
+function saveDivAsJpg(fileName) {
+  const imageData = canvas.toDataURL("image/png");
+  console.log(imageData);
+  const link = document.createElement("a");
+  link.href = imageData;
+  link.download = `${fileName}.png`;
+  link.click();
+}
+
+// Get the save button element
+const saveButton = document.getElementById("saveButton");
+const shareButton = document.getElementById("shareButton");
+
+// Attach click event to the save button
+saveButton.addEventListener("click", () => {
+  saveDivAsJpg("result-image");
+});
+
+function shareOnTwitter() {
+  const shareUrl = "https://twitter.com/intent/tweet";
+  const text = "내가 좋아하는 2023 태산은? ";
+  const url = "https://bnd-ev0530.github.io/year-end-settlement/";
+  const hashtags = "Our2023Taesan";
+  const imageData = canvas.toDataURL("image/jpeg", 0.5); // Adjust quality (0 to 1)
+  const img = new Image();
+  img.src = imageData;
+  console.log(img);
+  const fullUrl = `${shareUrl}?text=${encodeURIComponent(
+    text
+  )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(
+    hashtags
+  )}&media=${encodeURIComponent(img)}`;
+
+  window.open(fullUrl, "_blank");
+}
+
+// Attach click event to the save button
+shareButton.addEventListener("click", () => {
+  shareOnTwitter();
 });
