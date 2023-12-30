@@ -135,18 +135,14 @@ loginButton.addEventListener("click", (event) => {
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
 
   // songResult.innerHTML = `${song}`;
-  ctx.font = "23px "; // Set font size and family
+  ctx.font = "40px "; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(song, 360, 230);
+  ctx.fillText(song, 360, 235);
 
   // dateResult.innerHTML = `${date}`;
-  ctx.font = "23px "; // Set font size and family
-  ctx.fillStyle = "white"; // Set text color
   ctx.fillText(date, 360, 190);
   // nameResult.innerHTML = `${nickname}`;
-  ctx.font = "23px "; // Set font size and family
-  ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(nickname, 360, 150);
+  ctx.fillText(nickname, 360, 145);
   // urlResult.innerHTML = `<h1>FANCAM</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
   // 입덕 날짜
