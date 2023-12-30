@@ -6,7 +6,7 @@ const loginButton = document.getElementById("submit");
 // const nameResult = document.getElementById("nameResult");
 // const dateResult = document.getElementById("dateResult");
 const resultArea = document.getElementById("result-area");
-
+const finishImg = document.getElementById("finish-img");
 const container = document.getElementById("video-container");
 
 // canvas
@@ -45,7 +45,7 @@ const videos = [
   },
 ];
 
-const bgFile = "idcard_sm.png";
+const bgFile = "idcard_qr.PNG";
 console.log(bgFile);
 const bgImage = new Image();
 bgImage.src = bgFile;
@@ -119,7 +119,7 @@ loginButton.addEventListener("click", (event) => {
   const image = new Image();
   image.src = imgUrl;
   image.onload = function () {
-    ctx.drawImage(image, 40, 130, 200, 200);
+    ctx.drawImage(image, 50, 110, 185, 256);
   };
   fileInput.value = "";
 
@@ -135,19 +135,18 @@ loginButton.addEventListener("click", (event) => {
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
 
   // songResult.innerHTML = `${song}`;
-  ctx.font = "24px Arial"; // Set font size and family
+  ctx.font = "23px "; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(song, 370, 230);
+  ctx.fillText(song, 360, 230);
 
   // dateResult.innerHTML = `${date}`;
-  ctx.font = "24px Arial"; // Set font size and family
+  ctx.font = "23px "; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(date, 370, 190);
-  console.log(nickname);
+  ctx.fillText(date, 360, 190);
   // nameResult.innerHTML = `${nickname}`;
-  ctx.font = "24px Arial"; // Set font size and family
+  ctx.font = "23px "; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(nickname, 370, 150);
+  ctx.fillText(nickname, 360, 150);
   // urlResult.innerHTML = `<h1>FANCAM</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
 
   // 입덕 날짜
@@ -177,7 +176,7 @@ loginButton.addEventListener("click", (event) => {
 // Function to save div as JPG with complex content handling
 function saveDivAsJpg(fileName) {
   const imageData = canvas.toDataURL("image/png");
-  console.log(imageData);
+
   const link = document.createElement("a");
   link.href = imageData;
   link.download = `${fileName}.png`;
@@ -194,20 +193,17 @@ saveButton.addEventListener("click", () => {
 });
 
 function shareOnTwitter() {
+  finishImg.src = canvas.toDataURL("image/png");
   const shareUrl = "https://twitter.com/intent/tweet";
   const text = "내가 좋아하는 2023 태산은? ";
   const url = "https://bnd-ev0530.github.io/year-end-settlement/";
   const hashtags = "Our2023Taesan";
-  const imageData = canvas.toDataURL("image/jpeg", 0.5); // Adjust quality (0 to 1)
-  const img = new Image();
-  img.src = imageData;
-  console.log(img);
   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
     text
   )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(
     hashtags
-  )}&media=${encodeURIComponent(img)}`;
-
+  )}&media=${encodeURIComponent(finishImg.src)}`;
+  console.log(finishImg.src);
   window.open(fullUrl, "_blank");
 }
 
