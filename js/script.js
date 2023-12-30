@@ -45,7 +45,7 @@ const videos = [
   },
 ];
 
-const bgFile = "/idcard_sm.png";
+const bgFile = "idcard_sm.png";
 console.log(bgFile);
 const bgImage = new Image();
 bgImage.src = bgFile;
