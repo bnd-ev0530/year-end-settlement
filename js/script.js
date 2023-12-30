@@ -200,8 +200,7 @@ function shareOnTwitter() {
     text
   )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(
     hashtags
-  )}&media=${encodeURIComponent(finishImg.src)}`;
-  console.log(finishImg.src);
+  )}&media=${encodeURIComponent(finishImg)}`;
   window.open(fullUrl, "_blank");
 }
 
