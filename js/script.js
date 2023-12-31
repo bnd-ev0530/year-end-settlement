@@ -17,6 +17,12 @@ const CANVAS_HEIGHT = 400;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
+let nickname;
+let song;
+let url;
+let date;
+let fancamTitle;
+
 //fake db - fancam
 const videos = [
   {
@@ -90,7 +96,7 @@ videos.forEach((video, index) => {
 loginButton.addEventListener("click", (event) => {
   event.preventDefault();
 
-  const nickname = loginForm.nickname.value;
+  nickname = loginForm.nickname.value;
   if (!nickname) {
     alert("이름을 입력해주세요!");
   }
@@ -99,14 +105,14 @@ loginButton.addEventListener("click", (event) => {
   const fileInput = loginForm.querySelector('input[type="file"]');
 
   //가장 좋아하는 곡
-  const song = loginForm.song.value;
+  song = loginForm.song.value;
 
   //가장 좋아하는 직캠
-  let url = loginForm.url.value;
+  url = loginForm.url.value;
   //console.log("가장 좋아하는 직캠은 " + url + "번");
 
   //입덕 날짜
-  const date = loginForm.date.value;
+  date = loginForm.date.value;
 
   //가장 좋아하는 사진 - fake img 생성
   const file = fileInput.files[0];
@@ -135,7 +141,7 @@ loginButton.addEventListener("click", (event) => {
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
 
   // songResult.innerHTML = `${song}`;
-  ctx.font = "24px Arial"; // Set font size and family
+  ctx.font = "16px Neo둥근모"; // Set font size and family
   ctx.fillStyle = "white"; // Set text color
   ctx.fillText(song, 360, 235);
 
@@ -150,25 +156,24 @@ loginButton.addEventListener("click", (event) => {
   // nameResult.innerHTML = `${nickname}`;
 
   //선택한 팬캠 정보를 찾음
-  // const findVideoById = (videosArray, id) => {
-  //   return videosArray.find((video) => video.id === id);
-  // };
+  const findVideoById = (videosArray, id) => {
+    return videosArray.find((video) => video.id === id);
+  };
 
-  // const videoIdToFind = url;
-  // const foundVideo = findVideoById(videos, videoIdToFind);
+  const videoIdToFind = url;
+  const foundVideo = findVideoById(videos, videoIdToFind);
 
   //선택한 팬캠 정보를 찾으면 결과에 넣음
-  // if (foundVideo) {
-  //   urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
-  //   console.log("Found Video:", foundVideo.title);
-  // } else {
-  //   console.log("Video not found.");
-  // }
+  if (foundVideo) {
+    fancamTitle = foundVideo.title;
+    // urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
+    console.log("Found Video:", foundVideo.title);
+  } else {
+    console.log("Video not found.");
+  }
   resultArea.classList.add("showing");
-
   window.location.href = "#result-area";
   // Reset the form fields
-  form.reset();
 });
 
 // Function to save div as JPG with complex content handling
@@ -191,16 +196,13 @@ saveButton.addEventListener("click", () => {
 });
 
 function shareOnTwitter() {
-  finishImg.src = canvas.toDataURL("image/png");
   const shareUrl = "https://twitter.com/intent/tweet";
-  const text = "내가 좋아하는 2023 태산은? ";
+  const text = `${nickname} 가(이) 좋아하는 2023 태산은? 가장 좋아하는 곡 : ${song}, 가장 좋아하는 직캠 : ${fancamTitle}, 입덕 날짜 : ${date}`;
   const url = "https://bnd-ev0530.github.io/year-end-settlement/";
   const hashtags = "Our2023Taesan";
   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
     text
-  )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(
-    hashtags
-  )}&media=${encodeURIComponent(finishImg)}`;
+  )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
   window.open(fullUrl, "_blank");
 }
 

@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:url" content="" />
-    <meta property="og:title" content="" />
+    <meta property="og:title" content="내가 좋아하는 2023 태산은?" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="images/idcard/default.png" />
     <meta property="og:description" content="" />
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="" />
+    <meta name="twitter:title" content="내가 좋아하는 2023 태산은?" />
     <meta name="twitter:description" content="" />
-    <meta name="twitter:image" content="" />
+    <meta name="twitter:image" content="images/idcard/default.png" />
     <link rel="shortcut icon" sizes="16x16 32x32 64x64" href="" />
     <title>2024 year end</title>
+    <link rel="stylesheet" href="https://unpkg.com/@kfonts/neodgm/index.css" />
     <link
       rel="stylesheet"
       type="text/css"
@@ -34,13 +35,13 @@
             placeholder="이름을 입력해 주세요..."
             maxlength="10"
             id="nickname"
-              required
-              name="nickname"
+            required
+            name="nickname"
           />
-          <br><br>
+          <br /><br />
 
           <label for="file"
-            >2. 가장 좋아하는 사진을 첨부하세요.<br><br>
+            >2. 가장 좋아하는 사진을 첨부하세요.<br /><br />
             <input
               type="file"
               accept="image/*"
@@ -49,26 +50,32 @@
               name="file"
             />
           </label>
-          <br>
-          <br>
-          <br>
-          <label for="song">3. 가장 좋아하는 곡을 선택하세요. </label><br>
           <br />
-            <input type="radio" id="song1" name="song" value="돌아버리겠다" checked />
-            <label for="song1">돌아버리겠다</label>
+          <br />
+          <br />
+          <label for="song">3. 가장 좋아하는 곡을 선택하세요. </label><br />
+          <br />
+          <input
+            type="radio"
+            id="song1"
+            name="song"
+            value="돌아버리겠다"
+            checked
+          />
+          <label for="song1">돌아버리겠다</label>
 
-            <input type="radio" id="song2" name="song" value="원앤온리" />
-            <label for="song2">원앤온리</label>
+          <input type="radio" id="song2" name="song" value="원앤온리" />
+          <label for="song2">원앤온리</label>
 
-            <input type="radio" id="song3" name="song" value="세레나데" />
-            <label for="song3">세레나데</label>
-            
-<br>
-<br>
-<br>
-<br>
+          <input type="radio" id="song3" name="song" value="세레나데" />
+          <label for="song3">세레나데</label>
+
+          <br />
+          <br />
+          <br />
+          <br />
           <label for="url"
-            >4. 가장 좋아하는 직캠을 선택하세요<br><br>
+            >4. 가장 좋아하는 직캠을 선택하세요<br /><br />
 
             <div id="video-container"></div>
 
@@ -83,11 +90,11 @@
               required
             /> -->
           </label>
-          <br>
-<br>
-<br>
+          <br />
+          <br />
+          <br />
           <label for="date"
-            >5. 입덕 날짜를 입력하세요<br><br>
+            >5. 입덕 날짜를 입력하세요<br /><br />
             <input
               type="date"
               id="date"
@@ -97,24 +104,21 @@
               max="2024-12-31"
             />
           </label>
-          
-          <input type="submit" value="확인" id="submit"></button>
+
+          <button type="submit" value="확인" id="submit">확인</button>
         </form>
 
+        <div id="result-area">
+          <h1>결과</h1>
+          <canvas id="myCanvas"></canvas>
 
+          <img src="" id="finish-img" style="display: none" />
 
-
-
-      <div id="result-area">
-        <canvas id="myCanvas"></canvas>
-
-        <img src="" id="finish-img" style="display: none;" >
-
-        <button id="saveButton">Save as JPG</button>
-        <button id="shareButton">Share to Twitter</button>
-
-
-        <!-- <h1 class="">result</h1>
+          <div class="btn-groups">
+            <button id="saveButton">Save as JPG</button>
+            <button id="shareButton">Share to Twitter</button>
+          </div>
+          <!-- <h1 class="">result</h1>
         <div class="result-card" >
           <ul class="result-list">
             <li id="nameResult"></li>
@@ -129,21 +133,24 @@
         <div class="result-video">
           <div id="urlResult"></div>
         </div> -->
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <!-- <div class="opening"><img src="images/bnd-logo-wh.png" /></div> -->
 
     <script src="https://kit.fontawesome.com/6478f529f2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
     <script src="js/swiper.js"></script>
     <!-- <script src="js/youtube.js"></script> -->
     <script src="js/script.js"></script>
     <!-- <script src="js/heart.js"></script> -->
     <!-- <script src="js/save.js"></script> -->
-
   </body>
 </html>

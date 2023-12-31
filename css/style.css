@@ -6,12 +6,34 @@ html {
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  width: 100vw;
-  font-family: "Comfortaa", "Noto Sans KR", sans-serif;
+  /* font-family: "Comfortaa", "Noto Sans KR", sans-serif; */
+  font-family: "Neo둥근모", "neodgm";
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+button {
+  width: 100%;
+  height: 45px;
+  box-sizing: border-box;
+  border: 0;
+  background-color: #00aaff;
+  font-size: 15px;
+  letter-spacing: -0.25pt;
+  -webkit-padding-before: 3px;
+  padding-block-start: 3px;
+  border-radius: 4px;
+  padding-left: 10px;
+  outline: none;
+  box-shadow: var(--box-shadow);
+}
+
+.btn-groups {
+  display: flex;
+  gap: 10px;
+}
+.btn-groups > button {
+  width: 45%;
 }
 
 input:not([type="radio"], [type="date"]) {
@@ -227,10 +249,23 @@ input[type="radio"] {
 .showing {
   display: block !important;
   margin: 20px 0 100px;
+  width: 100%;
 }
-
+.btn-groups {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+.btn-groups > button {
+  width: 50%;
+  background: #fff;
+  border: 1px solid #999;
+}
 canvas {
   width: 100%;
+  font-family: "Neo둥근모", "neodgm";
 }
 @keyframes hideSplashScreen {
   from {
