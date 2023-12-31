@@ -20,6 +20,7 @@ canvas.height = CANVAS_HEIGHT;
 let nickname;
 let song;
 let url;
+let fancamShortUrl;
 let date;
 let fancamTitle;
 
@@ -30,27 +31,31 @@ const videos = [
     url: "https://youtu.be/x_Iwj5zMu6I?si=G-HcYAPaf4O0x7tn",
     title: "[입덕직캠] One and Only",
     thumb: "001.jpg",
+    short: "https://shorturl.at/ejlox",
   },
   {
     id: "2",
     url: "https://youtu.be/wJBZ54iJHm4?si=x8CdL7a6aS5jggFN",
     title: "[입덕직캠]Hot Summer",
     thumb: "002.jpg",
+    short: "https://shorturl.at/ejlox",
   },
   {
     id: "3",
     url: "https://youtu.be/UkxSNLRqJ7s?si=9_p0nL1CmmCh3r0a",
     title: "[뮤직뱅크] One and Only",
     thumb: "003.jpg",
+    short: "https://shorturl.at/ejlox",
   },
   {
     id: "4",
     url: "https://youtu.be/x_Iwj5zMu6I?si=G-HcYAPaf4O0x7tn",
     title: "[페이스캠] 뭣같아",
     thumb: "004.jpg",
+    short: "https://shorturl.at/ejlox",
   },
 ];
-
+//bg image
 const bgFile = "idcard_qr.PNG";
 console.log(bgFile);
 const bgImage = new Image();
@@ -166,6 +171,8 @@ loginButton.addEventListener("click", (event) => {
   //선택한 팬캠 정보를 찾으면 결과에 넣음
   if (foundVideo) {
     fancamTitle = foundVideo.title;
+    fancamShortUrl = foundVideo.short;
+
     // urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
     console.log("Found Video:", foundVideo.title);
   } else {
@@ -197,7 +204,7 @@ saveButton.addEventListener("click", () => {
 
 function shareOnTwitter() {
   const shareUrl = "https://twitter.com/intent/tweet";
-  const text = `${nickname} 가(이) 좋아하는 2023 태산은? 가장 좋아하는 곡 : ${song}, 가장 좋아하는 직캠 : ${fancamTitle}, 입덕 날짜 : ${date}`;
+  const text = `${nickname} 가(이) 좋아하는 2023 태산은? ❤ 가장 좋아하는 곡 : ${song}, ❤ 가장 좋아하는 직캠 : ${fancamTitle}  🔗 ${fancamShortUrl}, ❤ 입덕 날짜 : ${date}`;
   const url = "https://bnd-ev0530.github.io/year-end-settlement/";
   const hashtags = "Our2023Taesan";
   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
