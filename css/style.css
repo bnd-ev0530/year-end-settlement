@@ -173,6 +173,10 @@ input[type="radio"] {
 #video-container img {
   width: 20%;
 }
+
+#photo-container img {
+  width: 20%;
+}
 .result-card {
   background-image: url("../images/idcard/bb2f3f477022bd0c89df2318987dd7f5.jpg");
   height: 241px;
