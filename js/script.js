@@ -6,7 +6,7 @@ const loginButton = document.getElementById("submit");
 // const nameResult = document.getElementById("nameResult");
 // const dateResult = document.getElementById("dateResult");
 const resultArea = document.getElementById("result-area");
-const finishImg = document.getElementById("finish-img");
+//const finishImg = document.getElementById("finish-img");
 const container = document.getElementById("video-container");
 const photoContainer = document.getElementById("photo-container");
 
@@ -20,20 +20,24 @@ canvas.height = CANVAS_HEIGHT;
 
 let nickname;
 let song;
+
 let url;
 let fancamShortUrl;
 let date;
 let fancamTitle;
 
+let photo;
+let photoCard;
+
 const photos = [
   {
-    id: "1",
+    id: "photo1",
     photo: "001.jpg",
     title: "마마태산",
   },
   {
-    id: "2",
-    photo: "001.jpg",
+    id: "photo2",
+    photo: "002.jpg",
     title: "마마태산2",
   },
 ];
@@ -99,23 +103,17 @@ const videos = [
   {
     id: "8",
     url: "https://youtu.be/wJBZ54iJHm4?si=IETGDsj4eVj9dwqZ",
-    title: "ABCDLOVE",
+    title: "ABCDLOVE [0904 컴백쇼]",
     thumb: "008.jpeg",
     short: "https://zrr.kr/Gft4",
     qrcode: "008.png",
   },
 ];
-//bg image
-const bgFile = "001.jpg";
-//console.log(bgFile);
-const bgImage = new Image();
-bgImage.src = bgFile;
-//console.log(bgImage);
-bgImage.onload = function () {
-  ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-};
 
-// 2. fancam 라디오 버튼 생성
+ctx.font = "24px "; // Set font size and family
+ctx.fillStyle = "white"; // Set text color
+
+// fancam 라디오 버튼 생성
 videos.forEach((video, index) => {
   const radioBtn = document.createElement("input");
   radioBtn.type = "radio";
@@ -134,24 +132,25 @@ videos.forEach((video, index) => {
   label.innerHTML = video.title;
 
   const img = document.createElement("img");
+  img.id = video.id;
 
   img.src = `images/fancam/${video.thumb}`;
   //   console.log(img);
 
   // Append radio button and label to container
+  label.appendChild(img);
   container.appendChild(radioBtn);
   container.appendChild(label);
-  container.appendChild(img);
 
   // Add a line break for better spacing
   container.appendChild(document.createElement("br"));
 });
 
-// 3. photo 라디오 버튼 생성
+// photo 라디오 버튼 생성
 photos.forEach((photo, index) => {
   const radioBtn = document.createElement("input");
   radioBtn.type = "radio";
-  radioBtn.id = `photo${photo.id}`; // Set unique ID
+  radioBtn.id = `${photo.id}`; // Set unique ID
   radioBtn.name = "photo";
   radioBtn.value = photo.id; //
 
@@ -161,7 +160,7 @@ photos.forEach((photo, index) => {
   }
 
   const label = document.createElement("label");
-  label.htmlFor = `photo${photo.id}`; // Associate label with radio button
+  label.htmlFor = `${photo.id}`; // Associate label with radio button
   label.id = photo.id;
   label.innerHTML = photo.title;
 
@@ -171,76 +170,70 @@ photos.forEach((photo, index) => {
   //   console.log(img);
 
   // Append radio button and label to container
+  label.appendChild(img);
   photoContainer.appendChild(radioBtn);
   photoContainer.appendChild(label);
-  photoContainer.appendChild(img);
 
   // Add a line break for better spacing
   photoContainer.appendChild(document.createElement("br"));
 });
 
-// 폼 확인 클릭시
-loginButton.addEventListener("click", (event) => {
-  event.preventDefault();
+//포토카드 찾기
+function findphotoCard() {
+  //선택한 사진 정보를 찾음
+  function findPhotoById(id) {
+    return photos.find((photo) => photo.id === id);
+  }
+  const photoId = loginForm.photo.value;
+  // Example usage:
+  const desiredId = photoId; // This value can be dynamically set based on user input, API response, etc.
+  const selectedPhoto = findPhotoById(desiredId);
+  //console.log(selectedPhoto);
 
+  //선택한 사진 포토카드 정보를 찾으면 결과에 넣음
+  if (selectedPhoto) {
+    photoCard = selectedPhoto.photo;
+    //console.log("photoCard : " + photoCard);
+    //finishImg.src = photoCard;
+    const bgImage = document.createElement("img");
+    bgImage.src = `images/bgcard/${photoCard}`;
+
+    //console.log(bgImage);
+    bgImage.onload = function () {
+      ctx.drawImage(bgImage, 0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      console.log("배경 카드 : " + bgImage.src + " 그리기완료");
+      findNickname();
+      findSong();
+      findDate();
+      findFancam();
+    };
+    console.log("Found Photo:", selectedPhoto.title);
+  } else {
+    console.log("Photo not found.");
+  }
+}
+
+//닉네임 찾고 그리기
+function findNickname() {
   nickname = loginForm.nickname.value;
   if (!nickname) {
     alert("이름을 입력해주세요!");
   }
-  // console.log("nickname :" + nickname);
-  //가장 좋아하는 사진
-  //const fileInput = loginForm.querySelector('input[type="file"]');
+  //console.log("nickname :" + nickname);
 
-  //가장 좋아하는 곡
+  ctx.fillText(nickname, 365, 140);
+  console.log("이름 : " + nickname + " 그리기완료");
+}
+
+//가장 좋아하는 노래 찾고 그리기
+function findSong() {
   song = loginForm.song.value;
-
-  //가장 좋아하는 직캠
+  ctx.fillText(song, 365, 228);
+  console.log("좋아하는 노래 : " + song + " 그리기완료");
+}
+//가장 좋아하는 직캠 찾고 qr 그리기
+function findFancam() {
   url = loginForm.url.value;
-  //console.log("가장 좋아하는 직캠은 " + url + "번");
-
-  //입덕 날짜
-  date = loginForm.date.value;
-
-  //가장 좋아하는 사진 - fake img 생성
-  //const file = fileInput.files[0];
-  // if (!file) {
-  //   alert("가장 좋아하는 사진을 선택해주세요!");
-  // }
-  // console.log(file);
-
-  // const imgUrl = URL.createObjectURL(file);
-  // const image = new Image();
-  // image.src = imgUrl;
-  // image.onload = function () {
-  //   ctx.drawImage(image, 50, 110, 185, 256);
-  // };
-  // fileInput.value = "";
-
-  //가장 좋아하는 사진 선택하면
-  //if (file) {
-  //fileResult.innerHTML = `<div><img src=${imgUrl} style="max-width:100%"></div>`; // Display the file name or other file details
-  //} else {
-  //선택안하면
-  //  alert("No file selected");
-  //  console.error("No file selected");
-  //}
-  //console.log(song);
-  //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
-
-  // songResult.innerHTML = `${song}`;
-  ctx.font = "16px Neo둥근모"; // Set font size and family
-  ctx.fillStyle = "white"; // Set text color
-  ctx.fillText(song, 360, 235);
-
-  // dateResult.innerHTML = `${date}`;
-  ctx.fillText(date, 360, 190);
-  // nameResult.innerHTML = `${nickname}`;
-  ctx.fillText(nickname, 360, 145);
-  // urlResult.innerHTML = `<h1>FANCAM</h1><iframe width="100%" height="315" src="https://www.youtube.com/embed/${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;
-
-  // 입덕 날짜
-  // dateResult.innerHTML = `${date}`;
-  // nameResult.innerHTML = `${nickname}`;
 
   //선택한 팬캠 정보를 찾음
   const findVideoById = (videosArray, id) => {
@@ -261,11 +254,28 @@ loginButton.addEventListener("click", (event) => {
     console.log("Video not found.");
   }
 
+  ///////qr 그리기 //////
   const qrImage = new Image();
   qrImage.src = `images/qrcode/${foundVideo.qrcode}`;
   qrImage.onload = function () {
     ctx.drawImage(qrImage, 480, 280, 100, 100);
   };
+  console.log("가장 좋아하는 직캠 qr : " + qrImage.src + " 그리기완료");
+}
+
+//입덕 날짜 찾고 그리기
+function findDate() {
+  date = loginForm.date.value;
+  ctx.fillText(date, 365, 185);
+  console.log("입덕날짜 : " + date + " 그리기완료");
+}
+
+// 폼 확인 클릭시
+loginButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  //포토카드 찾고 만들기
+  findphotoCard();
 
   resultArea.classList.add("showing");
   window.location.href = "#result-area";

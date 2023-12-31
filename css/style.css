@@ -250,6 +250,7 @@ input[type="radio"] {
   display: block !important;
   margin: 20px 0 100px;
   width: 100%;
+  position: relative;
 }
 .btn-groups {
   display: flex;
@@ -266,6 +267,14 @@ input[type="radio"] {
 canvas {
   width: 100%;
   font-family: "Neo둥근모", "neodgm";
+  z-index: 1;
+  position: relative;
+}
+.finish-img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  z-index: 2;
 }
 @keyframes hideSplashScreen {
   from {
