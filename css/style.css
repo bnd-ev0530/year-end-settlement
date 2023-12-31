@@ -266,7 +266,6 @@ input[type="radio"] {
 }
 canvas {
   width: 100%;
-  font-family: "Neo둥근모", "neodgm";
   z-index: 1;
   position: relative;
 }
