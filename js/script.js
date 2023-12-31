@@ -204,13 +204,19 @@ saveButton.addEventListener("click", () => {
 
 function shareOnTwitter() {
   const shareUrl = "https://twitter.com/intent/tweet";
-  const text = `${nickname} 가(이) 좋아하는 2023 태산은? ❤ 가장 좋아하는 곡 : ${song}, ❤ 가장 좋아하는 직캠 : ${fancamTitle}  🔗 ${fancamShortUrl}, ❤ 입덕 날짜 : ${date}`;
-  const url = "https://bnd-ev0530.github.io/year-end-settlement/";
-  const hashtags = "Our2023Taesan";
+  const text = `${nickname}의 가장 좋아하는 #Our2023Taesan !\n🖤 date: ${date}\n🖤 song: ${song}\n🖤 fancam: 🔗${fancamShortUrl}\n`;
+  const url = "https://NEWHIPBOY.com/card.html";
+  // const hashtags = "Our2023Taesan";
   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
     text
-  )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
+  )}&url=${encodeURIComponent(url)}}`;
   window.open(fullUrl, "_blank");
+
+  //   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
+  //     text
+  //   )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
+  //   window.open(fullUrl, "_blank");
+  // }
 }
 
 // Attach click event to the save button
