@@ -38,7 +38,7 @@ const photos = [
   {
     id: "photo2",
     photo: "002.jpg",
-    title: "마마태산2",
+    title: "수중태산",
   },
 ];
 
