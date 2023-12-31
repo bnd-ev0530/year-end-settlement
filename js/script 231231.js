@@ -8,7 +8,6 @@ const loginButton = document.getElementById("submit");
 const resultArea = document.getElementById("result-area");
 const finishImg = document.getElementById("finish-img");
 const container = document.getElementById("video-container");
-const photoContainer = document.getElementById("photo-container");
 
 // canvas
 const canvas = document.querySelector("canvas");
@@ -24,19 +23,6 @@ let url;
 let fancamShortUrl;
 let date;
 let fancamTitle;
-
-const photos = [
-  {
-    id: "1",
-    photo: "001.jpg",
-    title: "마마태산",
-  },
-  {
-    id: "2",
-    photo: "001.jpg",
-    title: "마마태산2",
-  },
-];
 
 //fake db - fancam
 const videos = [
@@ -106,7 +92,7 @@ const videos = [
   },
 ];
 //bg image
-const bgFile = "001.jpg";
+const bgFile = "idcard_qr.PNG";
 //console.log(bgFile);
 const bgImage = new Image();
 bgImage.src = bgFile;
@@ -147,38 +133,6 @@ videos.forEach((video, index) => {
   container.appendChild(document.createElement("br"));
 });
 
-// 3. photo 라디오 버튼 생성
-photos.forEach((photo, index) => {
-  const radioBtn = document.createElement("input");
-  radioBtn.type = "radio";
-  radioBtn.id = `photo${photo.id}`; // Set unique ID
-  radioBtn.name = "photo";
-  radioBtn.value = photo.id; //
-
-  // Check if it's the first radio button and set 'checked' attribute
-  if (index === 0) {
-    radioBtn.checked = true;
-  }
-
-  const label = document.createElement("label");
-  label.htmlFor = `photo${photo.id}`; // Associate label with radio button
-  label.id = photo.id;
-  label.innerHTML = photo.title;
-
-  const img = document.createElement("img");
-
-  img.src = `images/photo/${photo.photo}`;
-  //   console.log(img);
-
-  // Append radio button and label to container
-  photoContainer.appendChild(radioBtn);
-  photoContainer.appendChild(label);
-  photoContainer.appendChild(img);
-
-  // Add a line break for better spacing
-  photoContainer.appendChild(document.createElement("br"));
-});
-
 // 폼 확인 클릭시
 loginButton.addEventListener("click", (event) => {
   event.preventDefault();
@@ -189,7 +143,7 @@ loginButton.addEventListener("click", (event) => {
   }
   // console.log("nickname :" + nickname);
   //가장 좋아하는 사진
-  //const fileInput = loginForm.querySelector('input[type="file"]');
+  const fileInput = loginForm.querySelector('input[type="file"]');
 
   //가장 좋아하는 곡
   song = loginForm.song.value;
@@ -202,28 +156,28 @@ loginButton.addEventListener("click", (event) => {
   date = loginForm.date.value;
 
   //가장 좋아하는 사진 - fake img 생성
-  //const file = fileInput.files[0];
-  // if (!file) {
-  //   alert("가장 좋아하는 사진을 선택해주세요!");
-  // }
+  const file = fileInput.files[0];
+  if (!file) {
+    alert("가장 좋아하는 사진을 선택해주세요!");
+  }
   // console.log(file);
 
-  // const imgUrl = URL.createObjectURL(file);
-  // const image = new Image();
-  // image.src = imgUrl;
-  // image.onload = function () {
-  //   ctx.drawImage(image, 50, 110, 185, 256);
-  // };
-  // fileInput.value = "";
+  const imgUrl = URL.createObjectURL(file);
+  const image = new Image();
+  image.src = imgUrl;
+  image.onload = function () {
+    ctx.drawImage(image, 50, 110, 185, 256);
+  };
+  fileInput.value = "";
 
   //가장 좋아하는 사진 선택하면
-  //if (file) {
-  //fileResult.innerHTML = `<div><img src=${imgUrl} style="max-width:100%"></div>`; // Display the file name or other file details
-  //} else {
-  //선택안하면
-  //  alert("No file selected");
-  //  console.error("No file selected");
-  //}
+  if (file) {
+    //fileResult.innerHTML = `<div><img src=${imgUrl} style="max-width:100%"></div>`; // Display the file name or other file details
+  } else {
+    //선택안하면
+    alert("No file selected");
+    console.error("No file selected");
+  }
   //console.log(song);
   //가장 좋아하는 곡 결과에 넣기 위한 데이터 생성
 
