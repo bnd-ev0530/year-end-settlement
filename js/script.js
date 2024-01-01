@@ -28,12 +28,38 @@ const photos = [
   {
     id: "photo1",
     photo: "001.jpg",
-    title: "마마태산",
+    title: "A",
+    bgcard: "001.png",
   },
   {
     id: "photo2",
     photo: "002.jpg",
-    title: "수중태산(f)",
+    title: "B",
+    bgcard: "002.png",
+  },
+  {
+    id: "photo3",
+    photo: "003.jpg",
+    title: "C",
+    bgcard: "003.png",
+  },
+  {
+    id: "photo4",
+    photo: "004.jpg",
+    title: "D",
+    bgcard: "004.png",
+  },
+  {
+    id: "photo5",
+    photo: "005.jpg",
+    title: "E",
+    bgcard: "005.png",
+  },
+  {
+    id: "photo6",
+    photo: "006.jpg",
+    title: "F",
+    bgcard: "006.png",
   },
 ];
 
@@ -43,7 +69,7 @@ const videos = [
     id: "1",
     url: "https://youtu.be/x_Iwj5zMu6I?si=G-HcYAPaf4O0x7tn",
     title: "One and Only [0601 엠카운트다운]",
-    thumb: "001.jpeg",
+    thumb: "001.JPG",
     short: "https://zrr.kr/BG8J",
     qrcode: "001.png",
   },
@@ -51,7 +77,7 @@ const videos = [
     id: "2",
     url: "https://youtu.be/IJHqvfauu2M?si=euaPYgLNydewpWie",
     title: "돌아버리겠다 [0530 데뷔쇼]",
-    thumb: "002.jpeg",
+    thumb: "002.JPG",
     short: "https://zrr.kr/POan",
     qrcode: "002.png",
   },
@@ -59,7 +85,7 @@ const videos = [
     id: "3",
     url: "https://youtu.be/wH82Vk7GjYk?si=nyfHHaT36m82sULr",
     title: "Serenade [0627 인기가요]",
-    thumb: "003.jpeg",
+    thumb: "003.JPG",
     short: "https://zrr.kr/ddhD",
     qrcode: "003.png",
   },
@@ -67,7 +93,7 @@ const videos = [
     id: "4",
     url: "https://youtu.be/wJBZ54iJHm4?si=IETGDsj4eVj9dwqZ",
     title: "Hot Summer [0713 엠카운트다운]",
-    thumb: "004.jpeg",
+    thumb: "004.JPG",
     short: "https://zrr.kr/QC5a",
     qrcode: "004.png",
   },
@@ -75,7 +101,7 @@ const videos = [
     id: "5",
     url: "https://youtu.be/x_Iwj5zMu6I?si=G-HcYAPaf4O0x7tn",
     title: "예쁘다 [0630 뮤직뱅크]",
-    thumb: "005.jpeg",
+    thumb: "005.JPG",
     short: "https://zrr.kr/iRnA",
     qrcode: "005.png",
   },
@@ -83,7 +109,7 @@ const videos = [
     id: "6",
     url: "https://youtu.be/IJHqvfauu2M?si=euaPYgLNydewpWie",
     title: "뭣 같아 [0919 인기가요]",
-    thumb: "006.jpeg",
+    thumb: "006.JPG",
     short: "https://zrr.kr/7ztE",
     qrcode: "006.png",
   },
@@ -91,7 +117,7 @@ const videos = [
     id: "7",
     url: "https://youtu.be/wH82Vk7GjYk?si=nyfHHaT36m82sULr",
     title: "Crying [0908 뮤직뱅크]",
-    thumb: "007.jpeg",
+    thumb: "007.JPG",
     short: "https://zrr.kr/yCg1",
     qrcode: "007.png",
   },
@@ -99,7 +125,7 @@ const videos = [
     id: "8",
     url: "https://youtu.be/wJBZ54iJHm4?si=IETGDsj4eVj9dwqZ",
     title: "ABCDLOVE [0904 컴백쇼]",
-    thumb: "008.jpeg",
+    thumb: "008.JPG",
     short: "https://zrr.kr/Gft4",
     qrcode: "008.png",
   },
@@ -188,7 +214,7 @@ function findphotoCard() {
 
   //선택한 사진 포토카드 정보를 찾으면 결과에 넣음
   if (selectedPhoto) {
-    photoCard = selectedPhoto.photo;
+    photoCard = selectedPhoto.bgcard;
     //console.log("photoCard : " + photoCard);
     //finishImg.src = photoCard;
     const bgImage = document.createElement("img");

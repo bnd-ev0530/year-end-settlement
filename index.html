@@ -38,31 +38,24 @@
     <header class="title"></header>
     <section>
       <form id="login-form">
-        1. 이름을 입력해 주세요
-        <br />
-        <br />
-        <input
-          type="text"
-          placeholder="이름을 입력해 주세요..."
-          maxlength="10"
-          id="nickname"
-          required
-          name="nickname"
-        />
-        <br />
-        <br />
-        <br />
-        <br />
+        1. 이름을 입력하세요.
+        <div class="name-container container">
+          <input
+            type="text"
+            placeholder="Insert your name!"
+            maxlength="10"
+            id="nickname"
+            required
+            name="nickname"
+          />
+        </div>
 
-        2. 가장 좋아하는 사진을 선택하세요.<br /><br />
-        <div id="photo-container"></div>
+        2. 가장 좋아하는 태산의 사진을 선택하세요.
+        <div id="photo-container" class="container"></div>
 
-        <br />
-        <br />
-        <br />
-        <label for="song">3. 가장 좋아하는 곡을 선택하세요. </label><br />
-        <br />
-        <div class="song-container">
+        3. 가장 좋아하는 태산의 곡을 선택하세요.
+
+        <div class="song-container container">
           <div>
             <input
               type="radio"
@@ -77,17 +70,14 @@
             <input type="radio" id="song2" name="song" value="One and Only" />
             <label for="song2">One and Only</label>
           </div>
-
           <div>
             <input type="radio" id="song3" name="song" value="Serenade" />
             <label for="song3">Serenade</label>
           </div>
-
           <div>
             <input type="radio" id="song4" name="song" value="뭣 같아" />
             <label for="song4">뭣 같아</label>
           </div>
-
           <div>
             <input type="radio" id="song5" name="song" value="Crying" />
             <label for="song5">Crying</label>
@@ -96,21 +86,18 @@
             <input type="radio" id="song6" name="song" value="ABCDLOVE" />
             <label for="song6">ABCDLOVE</label>
           </div>
+          <div>
+            <input type="radio" id="song7" name="song" value="Fadeaway" />
+            <label for="song7">Fadeaway</label>
+          </div>
         </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <label for="url"
-          >4. 가장 좋아하는 직캠을 선택하세요<br /><br />
 
-          <div id="video-container"></div>
-        </label>
-        <br />
-        <br />
-        <br />
-        <label for="date"
-          >5. 입덕 날짜를 입력하세요<br /><br />
+        4. 가장 좋아하는 태산의 직캠을 선택하세요.
+
+        <div id="video-container" class="container"></div>
+
+        5. 태산을 좋아하게 된 날짜를 입력하세요.
+        <div class="date-container container">
           <input
             type="date"
             id="date"
@@ -119,7 +106,7 @@
             min="2023-04-01"
             max="2024-12-31"
           />
-        </label>
+        </div>
 
         <button type="submit" value="확인" id="submit">확인</button>
       </form>

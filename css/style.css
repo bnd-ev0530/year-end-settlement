@@ -5,17 +5,15 @@ html {
 }
 body {
   margin: 0 auto;
-  padding: 0;
-  /* font-family: "Comfortaa", "Noto Sans KR", sans-serif; */
-  font-family: "Neo둥근모", "neodgm";
+  font-family: "Comfortaa", "Noto Sans KR", sans-serif;
+  /* font-family: "Neo둥근모", "neodgm"; */
   display: flex;
   flex-direction: column;
   align-items: center;
   max-width: 768px;
   justify-content: center;
-  gap: 20px;
   width: 100%;
-  padding: 10px;
+  padding: 0 20px 20px 20px;
   box-sizing: border-box;
 }
 button {
@@ -46,8 +44,8 @@ input:not([type="radio"], [type="date"]) {
   width: 100%;
   height: 45px;
   box-sizing: border-box;
-  border: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #ddd;
+  background-color: #fff;
   font-size: 15px;
   letter-spacing: -0.25pt;
   -webkit-padding-before: 3px;
@@ -55,7 +53,10 @@ input:not([type="radio"], [type="date"]) {
   border-radius: 4px;
   padding-left: 10px;
   outline: none;
-  box-shadow: var(--box-shadow);
+}
+input[type="date"] {
+  width: 50%;
+  padding: 10px;
 }
 
 /* input::placeholder {
@@ -143,7 +144,7 @@ header {
 }
 
 #submit {
-  margin: 30px 0 50px;
+  margin: 0 0 50px;
   cursor: pointer;
 }
 
@@ -164,36 +165,55 @@ ul li {
 input[type="radio"] {
   display: inline-block;
 }
-
-#video-container img {
-  width: 35vw;
-  display: block;
-  margin-top: 5px;
-  padding-left: 20px;
+.container {
+  width: 100%;
+  margin: 10px 0 60px;
 }
-#video-container > div {
-  margin-bottom: 15px;
+.name-container {
 }
 #photo-container {
   display: flex;
   gap: 10px;
-  width: 100%;
   flex-wrap: wrap;
 }
 
 #photo-container > div {
-  width: 47%;
+  width: 42vw;
+  margin-right: 10px;
+}
+#photo-container > div:nth-child(2n) {
+  margin-right: 0;
+}
+
+#photo-container img {
+  width: 100%;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #f6f6f6;
+}
+.song-container {
 }
 .song-container > div {
   margin-bottom: 10px;
 }
-#photo-container img {
+
+#video-container {
+}
+
+#video-container img {
   width: 100%;
+  display: block;
   margin-top: 5px;
-  margin-left: 10px;
-  box-sizing: border-box;
   border-radius: 8px;
-  border: 1px solid #f6f6f6;
+}
+#video-container > div {
+  margin-bottom: 15px;
+}
+
+.date-container {
+  display: flex;
+  justify-content: center;
 }
 
 .result-card {
