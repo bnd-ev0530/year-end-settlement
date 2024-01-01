@@ -3,6 +3,8 @@ const loginButton = document.getElementById("submit");
 const resultArea = document.getElementById("result-area");
 const container = document.getElementById("video-container");
 const photoContainer = document.getElementById("photo-container");
+const opening = document.getElementById("opening");
+const section = document.getElementById("section");
 
 // canvas
 const canvas = document.querySelector("canvas");
@@ -337,3 +339,9 @@ function shareOnTwitter() {
 shareButton.addEventListener("click", () => {
   shareOnTwitter();
 });
+
+opening.addEventListener("click", openMain);
+function openMain() {
+  section.classList.remove("hidden");
+  opening.classList.add("hiddenAnimation");
+}

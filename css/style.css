@@ -8,7 +8,6 @@ body {
   font-family: "Comfortaa", "Noto Sans KR", sans-serif;
   /* font-family: "Neo둥근모", "neodgm"; */
   display: flex;
-  flex-direction: column;
   align-items: center;
   max-width: 768px;
   justify-content: center;
@@ -78,7 +77,7 @@ header {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .running {
@@ -98,7 +97,6 @@ header {
 .opening {
   width: 100vw;
   height: 100vh;
-  background: var(--bg-bnd-pk);
   position: absolute;
   top: 0;
   display: flex;
@@ -106,13 +104,26 @@ header {
   align-items: center;
   font-size: 100px;
   z-index: 2;
-  animation: hideSplashScreen 0.4s 0.8s ease-in-out forwards;
+  background-color: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 1s ease-out, visibility 0s 1s;
 }
 
 .opening img {
-  width: 300px;
+  width: 100%;
 }
-
+.logo {
+  width: 100%;
+}
+.logo img {
+  width: 100%;
+}
+.hiddenAnimation {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 1s ease-in, visibility 0s 1s;
+}
 .layout-box {
   display: flex;
   gap: 10px;
