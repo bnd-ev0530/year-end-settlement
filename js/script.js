@@ -33,7 +33,7 @@ const photos = [
   {
     id: "photo2",
     photo: "002.jpg",
-    title: "수중태산(fake data)",
+    title: "수중태산(f)",
   },
 ];
 
