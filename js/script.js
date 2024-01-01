@@ -10,8 +10,8 @@ const section = document.getElementById("section");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 ctx.imageSmoothingEnabled = false;
-const CANVAS_WIDTH = 600;
-const CANVAS_HEIGHT = 400;
+const CANVAS_WIDTH = 3000;
+const CANVAS_HEIGHT = 2000;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 
@@ -134,7 +134,7 @@ const videos = [
   },
 ];
 
-ctx.font = "14px Arial"; // Set font size and family
+ctx.font = "42px Arial"; // Set font size and family
 ctx.fillStyle = "white"; // Set text color
 
 // fancam 라디오 버튼 생성
@@ -247,14 +247,14 @@ function findNickname() {
 
   //console.log("nickname :" + nickname);
 
-  ctx.fillText(nickname, 365, 140);
+  ctx.fillText(nickname, 1851, 704);
   console.log("이름 : " + nickname + " 그리기완료");
 }
 
 //가장 좋아하는 노래 찾고 그리기
 function findSong() {
   song = loginForm.song.value;
-  ctx.fillText(song, 365, 228);
+  ctx.fillText(song, 1851, 1150);
   console.log("좋아하는 노래 : " + song + " 그리기완료");
 }
 //가장 좋아하는 직캠 찾고 qr 그리기
@@ -282,7 +282,7 @@ function findFancam() {
   const qrImage = new Image();
   qrImage.src = `images/qrcode/${foundVideo.qrcode}`;
   qrImage.onload = function () {
-    ctx.drawImage(qrImage, 480, 280, 100, 100);
+    ctx.drawImage(qrImage, 2585, 1526, 350, 350);
   };
   console.log("가장 좋아하는 직캠 qr : " + qrImage.src + " 그리기완료");
 }
@@ -290,7 +290,7 @@ function findFancam() {
 //입덕 날짜 찾고 그리기
 function findDate() {
   date = loginForm.date.value;
-  ctx.fillText(date, 365, 185);
+  ctx.fillText(date, 1851, 940);
   console.log("입덕날짜 : " + date + " 그리기완료");
 }
 
