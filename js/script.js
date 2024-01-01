@@ -308,7 +308,7 @@ loginButton.addEventListener("click", (event) => {
 
 // Function to save div as JPG with complex content handling
 function saveDivAsJpg(fileName) {
-  const imageData = canvas.toDataURL("image/png");
+  const imageData = canvas.toDataURL("image/png", 1);
 
   const link = document.createElement("a");
   link.href = imageData;
