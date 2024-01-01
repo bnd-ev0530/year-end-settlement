@@ -5,7 +5,7 @@ html {
 }
 body {
   margin: 0 auto;
-  font-family: "Comfortaa", "Noto Sans KR", sans-serif;
+  font-family: "arial", "Noto Sans KR", sans-serif;
   /* font-family: "Neo둥근모", "neodgm"; */
   display: flex;
   align-items: center;
@@ -333,6 +333,7 @@ canvas {
   width: 100%;
   z-index: 1;
   position: relative;
+  image-rendering: pixelated;
 }
 .finish-img {
   width: 100%;

@@ -9,6 +9,7 @@ const section = document.getElementById("section");
 // canvas
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
+ctx.imageSmoothingEnabled = false;
 const CANVAS_WIDTH = 600;
 const CANVAS_HEIGHT = 400;
 canvas.width = CANVAS_WIDTH;
