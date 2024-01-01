@@ -16,28 +16,20 @@ body {
   padding: 0 20px 20px 20px;
   box-sizing: border-box;
 }
-button {
+section {
   width: 100%;
-  height: 45px;
-  box-sizing: border-box;
-  border: 0;
-  background-color: #00aaff;
-  font-size: 15px;
-  letter-spacing: -0.25pt;
-  -webkit-padding-before: 3px;
-  padding-block-start: 3px;
-  border-radius: 4px;
-  padding-left: 10px;
-  outline: none;
-  box-shadow: var(--box-shadow);
+}
+button {
+  all: unset;
+}
+.form-btn {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn-groups {
   display: flex;
   gap: 10px;
-}
-.btn-groups > button {
-  width: 45%;
 }
 
 input:not([type="radio"], [type="date"]) {
@@ -144,8 +136,14 @@ header {
 }
 
 #submit {
-  margin: 0 0 50px;
   cursor: pointer;
+  background-image: url(../images/get.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 51vw;
+  border: none;
+  max-width: 100%;
 }
 
 label {
@@ -167,7 +165,7 @@ input[type="radio"] {
 }
 .container {
   width: 100%;
-  margin: 10px 0 60px;
+  margin: 20px 0 60px;
 }
 .name-container {
 }
@@ -291,7 +289,7 @@ input[type="radio"] {
 }
 .showing {
   display: block !important;
-  margin: 20px 0 100px;
+  margin: 70px 0 100px;
   width: 100%;
   position: relative;
 }
@@ -300,12 +298,22 @@ input[type="radio"] {
   gap: 10px;
   justify-content: center;
   width: 100%;
-  margin-top: 20px;
 }
 .btn-groups > button {
-  width: 50%;
-  background: #fff;
-  border: 1px solid #999;
+  all: unset;
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 50vw;
+  height: 25vw;
+  border: none;
+}
+
+#saveButton {
+  background-image: url("../images/download.png");
+}
+#shareButton {
+  background-image: url("../images/share.png");
 }
 canvas {
   width: 100%;

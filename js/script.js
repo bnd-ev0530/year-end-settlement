@@ -131,7 +131,7 @@ const videos = [
   },
 ];
 
-ctx.font = "16px Arial"; // Set font size and family
+ctx.font = "14px Arial"; // Set font size and family
 ctx.fillStyle = "white"; // Set text color
 
 // fancam 라디오 버튼 생성
@@ -239,8 +239,9 @@ function findphotoCard() {
 function findNickname() {
   nickname = loginForm.nickname.value;
   if (!nickname) {
-    alert("이름을 입력해주세요!");
+    nickname = "이름없음";
   }
+
   //console.log("nickname :" + nickname);
 
   ctx.fillText(nickname, 365, 140);
