@@ -134,7 +134,7 @@ const videos = [
   },
 ];
 
-ctx.font = "44px Arial"; // Set font size and family
+ctx.font = "46px Arial"; // Set font size and family
 ctx.fillStyle = "white"; // Set text color
 
 // fancam 라디오 버튼 생성
