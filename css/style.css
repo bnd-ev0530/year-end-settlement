@@ -48,7 +48,8 @@ input:not([type="radio"], [type="date"]) {
 
 input[type="date"] {
   width: 0;
-  min-width: 50%;
+  min-width: 60%;
+  height: 20px;
   padding: 10px;
 }
 
