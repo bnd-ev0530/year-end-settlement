@@ -27,98 +27,102 @@
   <body>
     <header class="title"></header>
     <section>
-      <div class="login">
-        <form id="login-form">
-          <label for="nickname">1. 이름을 입력해 주세요</label>
-          <input
-            type="text"
-            placeholder="이름을 입력해 주세요..."
-            maxlength="10"
-            id="nickname"
-            required
-            name="nickname"
-          />
-          <br /><br />
+      <form id="login-form">
+        1. 이름을 입력해 주세요
+        <br />
+        <br />
+        <input
+          type="text"
+          placeholder="이름을 입력해 주세요..."
+          maxlength="10"
+          id="nickname"
+          required
+          name="nickname"
+        />
+        <br />
+        <br />
+        <br />
+        <br />
 
-          <label for="photo"
-            >2. 가장 좋아하는 사진을 선택하세요.<br /><br />
-            <div id="photo-container"></div>
-            <!-- <input
-              type="file"
-              accept="image/*"
-              id="file"
-              required
-              name="file"
-            /> -->
-          </label>
-          <br />
-          <br />
-          <br />
-          <label for="song">3. 가장 좋아하는 곡을 선택하세요. </label><br />
-          <br />
-          <input
-            type="radio"
-            id="song1"
-            name="song"
-            value="돌아버리겠다"
-            checked
-          />
-          <label for="song1">돌아버리겠다</label>
+        2. 가장 좋아하는 사진을 선택하세요.<br /><br />
+        <div id="photo-container"></div>
 
-          <input type="radio" id="song2" name="song" value="원앤온리" />
-          <label for="song2">One and Only</label>
-
-          <input type="radio" id="song3" name="song" value="세레나데" />
-          <label for="song3">세레나데</label>
-
-          <br />
-          <br />
-          <br />
-          <br />
-          <label for="url"
-            >4. 가장 좋아하는 직캠을 선택하세요<br /><br />
-
-            <div id="video-container"></div>
-
-            <!-- <input
-              type="url"
-              name="url"
-              id="url"
-              value="https://www.youtube.com/watch?v=bxxCbRKfjHs"
-              placeholder="https://www.youtube.com/watch?v=bxxCbRKfjHs"
-              pattern="https://.*"
-              size="30"
-              required
-            /> -->
-          </label>
-          <br />
-          <br />
-          <br />
-          <label for="date"
-            >5. 입덕 날짜를 입력하세요<br /><br />
+        <br />
+        <br />
+        <br />
+        <label for="song">3. 가장 좋아하는 곡을 선택하세요. </label><br />
+        <br />
+        <div class="song-container">
+          <div>
             <input
-              type="date"
-              id="date"
-              name="date"
-              value="2023-12-29"
-              min="2023-04-01"
-              max="2024-12-31"
+              type="radio"
+              id="song1"
+              name="song"
+              value="돌아버리겠다"
+              checked
             />
-          </label>
-
-          <button type="submit" value="확인" id="submit">확인</button>
-        </form>
-
-        <div id="result-area">
-          <h1>결과</h1>
-          <canvas id="myCanvas"></canvas>
-
-          <!-- <img src="" id="finish-img" />-->
-
-          <div class="btn-groups">
-            <button id="saveButton">Save as JPG</button>
-            <button id="shareButton">Share to Twitter</button>
+            <label for="song1">돌아버리겠다</label>
           </div>
+          <div>
+            <input type="radio" id="song2" name="song" value="One and Only" />
+            <label for="song2">One and Only</label>
+          </div>
+
+          <div>
+            <input type="radio" id="song3" name="song" value="Serenade" />
+            <label for="song3">Serenade</label>
+          </div>
+
+          <div>
+            <input type="radio" id="song4" name="song" value="뭣 같아" />
+            <label for="song4">뭣 같아</label>
+          </div>
+
+          <div>
+            <input type="radio" id="song5" name="song" value="Crying" />
+            <label for="song5">Crying</label>
+          </div>
+          <div>
+            <input type="radio" id="song6" name="song" value="ABCDLOVE" />
+            <label for="song6">ABCDLOVE</label>
+          </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <label for="url"
+          >4. 가장 좋아하는 직캠을 선택하세요<br /><br />
+
+          <div id="video-container"></div>
+        </label>
+        <br />
+        <br />
+        <br />
+        <label for="date"
+          >5. 입덕 날짜를 입력하세요<br /><br />
+          <input
+            type="date"
+            id="date"
+            name="date"
+            value="2023-12-29"
+            min="2023-04-01"
+            max="2024-12-31"
+          />
+        </label>
+
+        <button type="submit" value="확인" id="submit">확인</button>
+      </form>
+
+      <div id="result-area">
+        <h1>결과</h1>
+        <canvas id="myCanvas"></canvas>
+
+        <!-- <img src="" id="finish-img" />-->
+
+        <div class="btn-groups">
+          <button id="saveButton">Save as JPG</button>
+          <button id="shareButton">Share to Twitter</button>
         </div>
       </div>
     </section>

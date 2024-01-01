@@ -1,12 +1,6 @@
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("submit");
-// const songResult = document.getElementById("songResult");
-// const fileResult = document.getElementById("fileResult");
-// const urlResult = document.getElementById("urlResult");
-// const nameResult = document.getElementById("nameResult");
-// const dateResult = document.getElementById("dateResult");
 const resultArea = document.getElementById("result-area");
-//const finishImg = document.getElementById("finish-img");
 const container = document.getElementById("video-container");
 const photoContainer = document.getElementById("photo-container");
 
@@ -29,6 +23,7 @@ let fancamTitle;
 let photo;
 let photoCard;
 
+//fake db - photo
 const photos = [
   {
     id: "photo1",
@@ -38,7 +33,7 @@ const photos = [
   {
     id: "photo2",
     photo: "002.jpg",
-    title: "수중태산",
+    title: "수중태산(fake data)",
   },
 ];
 
@@ -110,7 +105,7 @@ const videos = [
   },
 ];
 
-ctx.font = "18px Arial"; // Set font size and family
+ctx.font = "16px Arial"; // Set font size and family
 ctx.fillStyle = "white"; // Set text color
 
 // fancam 라디오 버튼 생성
@@ -127,6 +122,7 @@ videos.forEach((video, index) => {
   }
 
   const label = document.createElement("label");
+  const div = document.createElement("div");
   label.htmlFor = `url${video.id}`; // Associate label with radio button
   label.id = video.id;
   label.innerHTML = video.title;
@@ -139,11 +135,11 @@ videos.forEach((video, index) => {
 
   // Append radio button and label to container
   label.appendChild(img);
-  container.appendChild(radioBtn);
-  container.appendChild(label);
+  div.appendChild(radioBtn);
+  div.appendChild(label);
 
   // Add a line break for better spacing
-  container.appendChild(document.createElement("br"));
+  container.appendChild(div);
 });
 
 // photo 라디오 버튼 생성
@@ -160,6 +156,7 @@ photos.forEach((photo, index) => {
   }
 
   const label = document.createElement("label");
+  const div = document.createElement("div");
   label.htmlFor = `${photo.id}`; // Associate label with radio button
   label.id = photo.id;
   label.innerHTML = photo.title;
@@ -167,15 +164,14 @@ photos.forEach((photo, index) => {
   const img = document.createElement("img");
 
   img.src = `images/photo/${photo.photo}`;
-  //   console.log(img);
+  img.id = photo.id;
 
   // Append radio button and label to container
   label.appendChild(img);
-  photoContainer.appendChild(radioBtn);
-  photoContainer.appendChild(label);
+  div.appendChild(radioBtn);
+  div.appendChild(label);
 
-  // Add a line break for better spacing
-  photoContainer.appendChild(document.createElement("br"));
+  photoContainer.appendChild(div);
 });
 
 //포토카드 찾기
@@ -247,14 +243,12 @@ function findFancam() {
   if (foundVideo) {
     fancamTitle = foundVideo.title;
     fancamShortUrl = foundVideo.short;
-
-    // urlResult.innerHTML = `<a href="${foundVideo.url}" target="_blank"><div><img src="images/fancam/${foundVideo.thumb}" width="100%"></div><p>${foundVideo.title}</p></a>`;
     console.log("Found Video:", foundVideo.title);
   } else {
     console.log("Video not found.");
   }
 
-  ///////qr 그리기 //////
+  //qr 그리기
   const qrImage = new Image();
   qrImage.src = `images/qrcode/${foundVideo.qrcode}`;
   qrImage.onload = function () {
@@ -310,12 +304,6 @@ function shareOnTwitter() {
     text
   )}&url=${encodeURIComponent(url)}`;
   window.open(fullUrl, "_blank");
-
-  //   const fullUrl = `${shareUrl}?text=${encodeURIComponent(
-  //     text
-  //   )}&url=${encodeURIComponent(url)}&hashtags=${encodeURIComponent(hashtags)}`;
-  //   window.open(fullUrl, "_blank");
-  // }
 }
 
 // Attach click event to the save button
