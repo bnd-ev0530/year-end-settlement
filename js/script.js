@@ -241,7 +241,7 @@ function findphotoCard() {
 function findNickname() {
   nickname = loginForm.nickname.value;
   if (!nickname) {
-    nickname = "이름없음";
+    nickname = "Giant Mountain";
   }
 
   //console.log("nickname :" + nickname);
