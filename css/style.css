@@ -17,6 +17,7 @@ body {
 }
 section {
   width: 100%;
+  display: none;
 }
 button {
   all: unset;
@@ -116,6 +117,16 @@ header {
 .opening img {
   width: 100%;
 }
+.opening button {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: #00aeff;
+  font-size: 20px;
+  text-align: center;
+  padding: 15px 0;
+  color: #fff;
+}
 .logo {
   width: 100%;
 }
@@ -158,6 +169,7 @@ header {
   height: 51vw;
   border: none;
   max-width: 100%;
+  animation: fadeIn 1.2s forwards;
 }
 
 label {
@@ -181,8 +193,7 @@ input[type="radio"] {
   width: 100%;
   margin: 20px 0 60px;
 }
-.name-container {
-}
+
 #photo-container {
   display: flex;
   gap: 10px;
@@ -204,13 +215,9 @@ input[type="radio"] {
   border-radius: 8px;
   border: 1px solid #f6f6f6;
 }
-.song-container {
-}
+
 .song-container > div {
   margin-bottom: 10px;
-}
-
-#video-container {
 }
 
 #video-container img {
@@ -322,7 +329,17 @@ input[type="radio"] {
   height: 25vw;
   border: none;
 }
-
+.next-btn {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #00aeff;
+  font-size: 16px;
+  text-align: center;
+  padding: 15px 0;
+  color: #fff;
+}
 #saveButton {
   background-image: url("../images/download.png");
 }
@@ -339,6 +356,41 @@ canvas {
   position: absolute;
   left: 0;
   z-index: 2;
+}
+.quiz-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  animation: fadeIn 1s forwards;
+}
+.status {
+  height: 20px;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px;
+  margin: 20px 0 50px;
+  border: 1px solid #ebebeb;
+}
+
+.statusBar {
+  height: 100%;
+  border-radius: 20px;
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#febbbb+0,fe9090+52,ff5c5c+100;Red+3D+%231 */
+  background: #00b3ff;
+  /* Old browsers */
+  /*background: -moz-linear-gradient(top, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);*/
+  /* FF3.6-15 */
+  /*background: -webkit-linear-gradient(
+    top,
+    #febbbb 0%,
+    #fe9090 52%,
+    #ff5c5c 100%
+  );*/
+  /* Chrome10-25,Safari5.1-6 */
+  /*background: linear-gradient(to bottom, #febbbb 0%, #fe9090 52%, #ff5c5c 100%);*/
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#febbbb', endColorstr='#ff5c5c', GradientType=0);
+  /* IE6-9 */
 }
 @keyframes hideSplashScreen {
   from {

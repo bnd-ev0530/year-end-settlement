@@ -4,7 +4,14 @@ const resultArea = document.getElementById("result-area");
 const container = document.getElementById("video-container");
 const photoContainer = document.getElementById("photo-container");
 const opening = document.getElementById("opening");
+const nextBtn = document.getElementById("next-btn");
 const section = document.getElementById("section");
+const question1 = document.getElementById("question1");
+const question2 = document.getElementById("question2");
+const question3 = document.getElementById("question3");
+const question4 = document.getElementById("question4");
+const question5 = document.getElementById("question5");
+const finishForm = document.getElementById("finish-form");
 
 // canvas
 const canvas = document.querySelector("canvas");
@@ -343,6 +350,37 @@ shareButton.addEventListener("click", () => {
 
 opening.addEventListener("click", openMain);
 function openMain() {
-  section.classList.remove("hidden");
-  opening.classList.add("hiddenAnimation");
+  opening.style.WebkitAnimation = "fadeOut 1s";
+  opening.style.animation = "fadeOut 1s";
+  setTimeout(() => {
+    section.style.WebkitAnimation = "fadeIn 1s";
+    section.style.animation = "fadeIn 1s";
+    setTimeout(() => {
+      opening.style.display = "none";
+      section.style.display = "block";
+      section.classList.remove("hidden");
+    }, 450);
+  }, 450);
+  //section.classList.remove("hidden");
+  //opening.classList.add("hiddenAnimation");
+}
+let i = 1;
+const statusBar = document.querySelector(".statusBar");
+let endPoint = 20;
+statusBar.style.width = endPoint + "%";
+function nextQuiz() {
+  let question = document.getElementById(`question${i}`);
+  const isContain = question.classList.contains("hidden");
+  if (i > 4) {
+    finishForm.classList.remove("hidden");
+    nextBtn.classList.add("hidden");
+  }
+  if (!isContain) {
+    document.getElementById(`question${i}`).classList.add("hidden");
+    i++;
+    document.getElementById(`question${i}`).classList.remove("hidden");
+    endPoint += 20;
+    console.log(endPoint);
+    statusBar.style.width = endPoint + "%";
+  }
 }
